@@ -61,7 +61,6 @@ app.post('/auth/login', (req, res) => {
 
   let username = req.body.username;
   let password = req.body.password;
-  console.log(username)
   let query = `
   SELECT id
   FROM users
@@ -69,7 +68,6 @@ app.post('/auth/login', (req, res) => {
   `
   connection.query(query, [username, password], (err, rows, fields) => {
     if (err) throw err
-    console.log(rows)
     if (rows.length > 0) {
       req.session.isLogged = true
       req.session.userId = rows[0].id
