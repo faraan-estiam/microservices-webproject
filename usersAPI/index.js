@@ -9,10 +9,12 @@ const connection = mysql.createConnection({
 })
 
 const express = require('express')
+const cors = require('cors')
 const bodyParser = require("body-parser")
 
 const app = express()
 app.use(bodyParser.json())
+app.use(cors())
 
 //create a new user
 app.post('/users', (req, res) => {

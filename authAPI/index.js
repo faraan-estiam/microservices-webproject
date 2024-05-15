@@ -9,6 +9,7 @@ const connection = mysql.createConnection({
 })
 
 const express = require('express')
+const cors = require('cors')
 const session = require('express-session')
 const bodyParser = require("body-parser")
 
@@ -19,6 +20,7 @@ app.use(session({
   saveUninitialized: true
 }))
 app.use(bodyParser.json())
+app.use(cors())
 
 //ask server if user is authenticated
 app.get('/auth', (req, res) => {
