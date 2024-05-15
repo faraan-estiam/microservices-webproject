@@ -3,9 +3,9 @@ const port = 8081
 const mysql = require('mysql')
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'nodeapi',
-  password: 'nodeapiPass?',
-  database: 'microservices'
+  user: 'authapi',
+  password: 'authapiPass?',
+  database: 'authapi'
 })
 
 const express = require('express')
