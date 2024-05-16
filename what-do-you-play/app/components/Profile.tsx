@@ -56,6 +56,25 @@ const FavoriteGames = [
   }
 ]
 
+const FavoriteGames2 = [
+  {
+      "id": 1,
+      "title": "League Of Legends",
+      "img": null,
+      "description": "Un jeu",
+      "releasedate": null,
+      "category": "Multiplayer Online Battle Arena"
+  },
+  {
+      "id": 3,
+      "title": "Rocket League",
+      "img": null,
+      "description": "Un jeu de foot-voiture",
+      "releasedate": null,
+      "category": "Arcade Car Football"
+  }
+]
+
 let games:any = []
 for (let i=0; i<FavoriteGames.length; i++) {
   const game:any = FavoriteGames[i] 
@@ -68,6 +87,20 @@ for (let i=0; i<FavoriteGames.length; i++) {
   )
   games.push(item)
 }
+
+let games2:any = []
+for (let i=0; i<FavoriteGames2.length; i++) {
+  const game:any = FavoriteGames2[i] 
+  let item = (
+    <div className={"grid grid-cols-5 content-center h-12 center px-2 my-2 bg-slate-500 rounded-md gameId"+game.id}>
+        <p className="content-center">{game.title}</p>
+        <p className='col-span-3'>{game.description}</p>
+        <p className=''>{game.category}</p>
+    </div>
+  )
+  games2.push(item)
+}
+
 
 export default function Profile(props:any) {
   const [userData, setUserData]:any = useState({})
@@ -93,7 +126,7 @@ export default function Profile(props:any) {
     </div>
     <h2 className='text-3xl my-6'>Favorite games</h2>
     <div className={'grid w-full'}>
-      {games}
+      {props.userId==1?games:games2}
     </div>
   </main>
   );
