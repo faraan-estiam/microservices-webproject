@@ -73,7 +73,7 @@ app.post('/auth/login', (req, res) => {
     if (rows.length > 0) {
       req.session.isLogged = true
       req.session.userId = rows[0].id
-      res.send("User authentication success")
+      res.send({message: "User authentication success", userId:rows[0].id})
     } else {
       res.status(401).send("User authentication failed")
     }
